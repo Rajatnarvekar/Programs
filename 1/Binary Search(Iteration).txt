@@ -1,0 +1,42 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int binarysearch(int a[], int n, int target)
+{
+	int low = 0;
+	int high = n;
+	while(low<=high)
+	{
+		int mid = (low+high)/2;
+		if(a[mid]<target)
+			low = mid+1;
+		else if(a[mid]>target)
+			high = mid-1;
+		else
+			return mid;
+	}
+	return -1;
+}
+
+int main()
+{
+	int n,i,target;
+	cout<<"/n Enter The Number Of Elements You Want To Enter:";
+	cin>>n;
+	int a[n];
+	for(i=0;i<n;i++0)
+	{
+		cout<<"/n Enter Element"<<i<<":";
+		cin>>a[i];
+	}
+	sort(a,a+n);
+	cout<<"Your Sorted Array is:";
+	for(i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+	cout<<"/n Enter The Number You Want To Find From The Array:";
+	cin>>target;
+	(binarysearch(a,n,target) == -1)?cout<<"/n Entered Element Not Found":cout<<"/n Entered Element Found At Index:"<<binarysearch(a,n,target);
+	return 0;
+}

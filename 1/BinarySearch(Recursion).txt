@@ -1,0 +1,49 @@
+#include<iosteam.h>
+#include<alogritm>
+using namespace std;
+
+int main()
+{
+	int i,n;
+	cout<<"\n Enter The Number Of Elemnts You Want To Enter:";
+	cin>>n;
+	int a[n];
+	for(i=0;i<n;i++)
+	{
+		cout<<"\n Enter Element"<<i<<":";
+		cin>>a[i];
+	}
+	sort(a,a+n);
+	cout<<"\n Your Sorted Array Is:";
+	for(i=0;i<n;i++)
+	{
+		cout<<a[n]<<" ";
+	}
+	cout<<"\n Enter The Number You Want To Find";
+	int target;
+	cin>>target;
+	(binarysearch(a,1,n,target) == -1)?cout<<"\n Entered Element Not Found":cout<<"\n Entered Element Found At Index "<<binarysearch(a,1,n,target);
+	return 0;
+}
+int binarysearch(int array[], int first, int last, int target)
+{
+	int index;
+	if(first>last)
+		index=-1;
+	else
+	{
+		int mid = (first+last)/2;
+		if(traget==array[mid])
+			index=mid;
+		else
+		{
+			if(target<array[mid])
+				index=binarysearch(array,first,mid-1,target);
+			else
+				index=binarysearch(array,mid+1,last,target);
+		}
+	}
+	return index;
+}
+
+	
